@@ -1,7 +1,8 @@
 def factorial(num):
 	fact = num
-	for i in range(1, num - 1):
-		fact = fact * (num - i)
+	while num != 2:
+		num = num - 1
+		fact *= num
 	return fact
 
 
