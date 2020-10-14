@@ -1,3 +1,10 @@
+"""
+Mode by grouping  version 1.5.10.20
+
+Copyright (c) 2020 Shahibur Rahaman
+Licensed under MIT
+"""
+
 import statistics  # Importing/adding a module which gives us extra functionality.
 
 
