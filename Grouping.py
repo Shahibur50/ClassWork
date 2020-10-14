@@ -83,7 +83,7 @@ print("-------------------------------------")
 print("VI Group")
 m5 = []
 
-for i in range(2, len(size) - 2, 3):
+for i in range(2, len(size) - 1, 3):
     group5 = frequency[i] + frequency[i + 1] + frequency[i + 2]
     m5.append(group5)
 
