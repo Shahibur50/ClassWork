@@ -1,3 +1,10 @@
+"""
+Average  version 1.4.10.20
+
+Copyright (c) 2020 Shahibur Rahaman
+Licensed under MIT
+"""
+
 terms = int(input("Enter the number of terms for average: "))
 
 term_values = []

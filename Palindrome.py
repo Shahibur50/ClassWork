@@ -1,3 +1,10 @@
+"""
+Palindrome version 1.0.10.20
+
+Copyright (c) 2020 Shahibur Rahaman
+Licensed under MIT
+"""
+
 word = input("Enter the word: ")
 
 new_word = ""

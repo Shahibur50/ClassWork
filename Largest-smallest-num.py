@@ -1,3 +1,10 @@
+"""
+Largest smallest num version 1.1.10.20
+
+Copyright (c) 2020 Shahibur Rahaman
+Licensed under MIT
+"""
+
 def big(List):
     biggest = List[0]
     for i in List:

@@ -1,3 +1,10 @@
+"""
+Largest 3rd num version 1.4.10.20
+
+Copyright (c) 2020 Shahibur Rahaman
+Licensed under MIT
+"""
+
 def main():
     print(f"The 3rd biggest number in the given list is {big3(List)}.")
 

@@ -1,3 +1,10 @@
+"""
+Triangle version 1.3.10.20
+
+Copyright (c) 2020 Shahibur Rahaman
+Licensed under MIT
+"""
+
 a = float(input("Enter the First side: "))
 b = float(input("Enter the second side: "))
 c = float(input("Enter the third side: "))

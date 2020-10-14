@@ -1,3 +1,10 @@
+"""
+Quadratic equation version 1.2.10.20
+
+Copyright (c) 2020 Shahibur Rahaman
+Licensed under MIT
+"""
+
 a = float(input("Enter the coefficient of a: "))
 b = float(input("Enter the coefficient of b: "))
 c = float(input("Enter the coefficient of c: "))

@@ -1,3 +1,10 @@
+"""
+Pythagorean triplet version 1.2.10.20
+
+Copyright (c) 2020 Shahibur Rahaman
+Licensed under MIT
+"""
+
 print("--------------------------------------------------------")
 print("")
 hypo = float(input("Enter the length of hypotenuse of triangle: "))

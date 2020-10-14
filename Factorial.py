@@ -1,3 +1,10 @@
+"""
+Factorial version 1.3.10.20
+
+Copyright (c) 2020 Shahibur Rahaman
+Licensed under MIT
+"""
+
 def factorial(num):
 	fact = num
 	while num != 2:

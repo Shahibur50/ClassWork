@@ -1,3 +1,10 @@
+"""
+Sum of digits version 1.2.10.20
+
+Copyright (c) 2020 Shahibur Rahaman
+Licensed under MIT
+"""
+
 def sum_of_digits(num):
 	total_sum = 0
 	while num % 10 != 0:

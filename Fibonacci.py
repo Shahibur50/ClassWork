@@ -1,3 +1,10 @@
+"""
+Fibonacci version 1.5.10.20
+
+Copyright (c) 2020 Shahibur Rahaman
+Licensed under MIT
+"""
+
 def words(term):
 	for i in range(term):
 		i += 1
