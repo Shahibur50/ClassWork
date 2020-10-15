@@ -1,5 +1,5 @@
 """
-Mode by grouping version 1.7.10.20
+Mode by grouping version 1.11.10.20
 
 Copyright (c) 2020 Shahibur Rahaman
 Licensed under MIT
@@ -7,6 +7,9 @@ Licensed under MIT
 
 import statistics
 import time
+
+size = []  # Class Interval
+freq = []  # Frequency
 
 m1 = []
 m2 = []
@@ -22,12 +25,53 @@ modal = 0
 
 def main():
     stopper("Starting up")
+    
+    class_size_input()
+    frequncy_input()
+
     table(size, freq)
     stopper("Estimating")
     estimation_table()
     stopper("\nAnalyzing")
     analyze()
     print(f"\nThe mode of given data is |> {mode()} <|.\n")
+
+
+def class_size_input():
+    global size
+
+    n = int(input("Enter the number of classes: "))
+    
+    start_interval = int(input("Enter the starting range of the first class interval: "))
+    end_interval = int(input("Enter the ending range of the first class interval: "))
+    
+    width = (end_interval - start_interval)
+
+    for _ in range(n):
+        interval = str(start_interval) + "-" + str(end_interval)
+        size.append(interval)
+        start_interval = end_interval
+        end_interval = start_interval + width
+
+
+def frequncy_input():
+    global freq
+
+    for i in range(len(size)):
+        i += 1
+        
+        word = ""
+        if i == 1:
+            word += "st"
+        elif i == 2:
+            word += "nd"
+        elif i == 3:
+            word += "rd"
+        else:
+            word += "th"
+
+        frequency = int(input(f"\nEnter the {i}{word} class's frequncy: "))
+        freq.append(frequency)
 
 
 def stopper(word):
@@ -100,6 +144,7 @@ def analyze():
 
 
 def mode():
+    global size
     global modal
     global freq
 
@@ -203,6 +248,4 @@ def group6(intervals, freq):
 
 
 if __name__ == "__main__":
-    size = ["0-5", "5-10", "10-15", "15-20", "20-25", "25-30", "30-35", '35-40', '40-45', '45-50', '50-55', '55-60']  # Class Interval
-    freq = [3, 7, 15, 30, 20, 10, 5, 5, 3, 1, 6, 50]  # Frequency
     main()
