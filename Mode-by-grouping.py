@@ -24,15 +24,10 @@ modal = 0
 
 
 def main():
-    stopper("Starting up")
-    
     class_size_input()
     frequncy_input()
-
     table(size, freq)
-    stopper("Estimating")
     estimation_table()
-    stopper("\nAnalyzing")
     analyze()
     print(f"\nThe mode of given data is |> {mode()} <|.\n")
 
@@ -72,14 +67,6 @@ def frequncy_input():
 
         frequency = int(input(f"\nEnter the {i}{word} class's frequncy: "))
         freq.append(frequency)
-
-
-def stopper(word):
-    print(word, end="")
-    for i in range(3):
-        print('.', end="")
-        time.sleep(1)
-    print("")
 
 
 def table(intervals, freq):
@@ -149,10 +136,7 @@ def mode():
     global freq
 
     print("_________________________________________")
-    stopper("Calculating the mode of given data")
-
-    freq.append(0)
-    freq.insert(freq[0], 0)
+    print("Calculating the mode of given data...")
 
     l1 = ""
     h2 = ""
