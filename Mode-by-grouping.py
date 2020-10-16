@@ -1,5 +1,5 @@
 """
-Mode by grouping version 1.11.10.20
+Mode by grouping version 1.12.10.20
 
 Copyright (c) 2020 Shahibur Rahaman
 Licensed under MIT
@@ -93,22 +93,23 @@ def estimation_table():
     print("           ESTIMATION")
     print("________________________________")
     print("\nGROUPS", " " * 2, "BIG. VALUES     CLASS \n")
+
     biggest_classes = [group1(size, freq), group2(size, freq), group3(size, freq),
                       group4(size, freq), group5(size, freq), group6(size, freq)]
     j = 0
     for i in biggest_classes:
         if j == 0:
             interv[j] = size[ms[j].index(i)]
-            print("GROUP", j + 1, " " * 5, i, " " * 8, interv[j])
+            print("GROUP", j + 1, " " * 5, i, " " * (10 - len(str(i))), interv[j])
         elif j == 1:
             interv[j] = size[ms[j].index(i) * 2 + 1]
-            print("GROUP", j + 1, " " * 5, i, " " * 8, interv[j])
+            print("GROUP", j + 1, " " * 5, i, " " * (10 - len(str(i))), interv[j])
         elif j == 2:
             interv[j] = size[ms[j].index(i) * 2 + 2]
-            print("GROUP", j + 1, " " * 5, i, " " * 8, interv[j])
+            print("GROUP", j + 1, " " * 5, i, " " * (10 - len(str(i))), interv[j])
         else:
             interv[j] = size[ms[j].index(i) * 2 + 3]
-            print("GROUP", j + 1, " " * 5, i, " " * 8, interv[j])
+            print("GROUP", j + 1, " " * 5, i, " " * (10 - len(str(i))), interv[j])
         j += 1
 
 
@@ -136,7 +137,6 @@ def mode():
     global freq
 
     print("_________________________________________")
-    print("Calculating the mode of given data...")
 
     l1 = ""
     h2 = ""
