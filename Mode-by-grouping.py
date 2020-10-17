@@ -1,5 +1,5 @@
 """
-Mode by grouping version 1.11.10.20
+Mode by grouping version 1.12.10.20
 
 Copyright (c) 2020 Shahibur Rahaman
 Licensed under MIT
@@ -24,15 +24,10 @@ modal = 0
 
 
 def main():
-    stopper("Starting up")
-    
     class_size_input()
     frequncy_input()
-
     table(size, freq)
-    stopper("Estimating")
     estimation_table()
-    stopper("\nAnalyzing")
     analyze()
     print(f"\nThe mode of given data is |> {mode()} <|.\n")
 
@@ -74,14 +69,6 @@ def frequncy_input():
         freq.append(frequency)
 
 
-def stopper(word):
-    print(word, end="")
-    for i in range(3):
-        print('.', end="")
-        time.sleep(1)
-    print("")
-
-
 def table(intervals, freq):
     print("________________________________")
     print("             TABLE")
@@ -106,22 +93,23 @@ def estimation_table():
     print("           ESTIMATION")
     print("________________________________")
     print("\nGROUPS", " " * 2, "BIG. VALUES     CLASS \n")
+
     biggest_classes = [group1(size, freq), group2(size, freq), group3(size, freq),
                       group4(size, freq), group5(size, freq), group6(size, freq)]
     j = 0
     for i in biggest_classes:
         if j == 0:
             interv[j] = size[ms[j].index(i)]
-            print("GROUP", j + 1, " " * 5, i, " " * 8, interv[j])
+            print("GROUP", j + 1, " " * 5, i, " " * (10 - len(str(i))), interv[j])
         elif j == 1:
             interv[j] = size[ms[j].index(i) * 2 + 1]
-            print("GROUP", j + 1, " " * 5, i, " " * 8, interv[j])
+            print("GROUP", j + 1, " " * 5, i, " " * (10 - len(str(i))), interv[j])
         elif j == 2:
             interv[j] = size[ms[j].index(i) * 2 + 2]
-            print("GROUP", j + 1, " " * 5, i, " " * 8, interv[j])
+            print("GROUP", j + 1, " " * 5, i, " " * (10 - len(str(i))), interv[j])
         else:
             interv[j] = size[ms[j].index(i) * 2 + 3]
-            print("GROUP", j + 1, " " * 5, i, " " * 8, interv[j])
+            print("GROUP", j + 1, " " * 5, i, " " * (10 - len(str(i))), interv[j])
         j += 1
 
 
@@ -149,10 +137,6 @@ def mode():
     global freq
 
     print("_________________________________________")
-    stopper("Calculating the mode of given data")
-
-    freq.append(0)
-    freq.insert(freq[0], 0)
 
     l1 = ""
     h2 = ""
@@ -176,11 +160,18 @@ def mode():
 
     l1 = int(l1)
 
+    if freq[size.index(modal)] == freq[-1]:
+        f2 = 0
+    else:
+        f2 = freq[size.index(modal) + 1]
+
+    if freq[size.index(modal)] == freq[0]:
+        f0 = 0
+    else:
+        f0 = freq[size.index(modal) - 1]
+
     f1 = freq[size.index(modal)]
-
-    f0 = freq[size.index(modal) - 1]
-
-    f2 = freq[size.index(modal) + 1]
+    
 
     # Calculating mode.
 
