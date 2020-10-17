@@ -160,11 +160,18 @@ def mode():
 
     l1 = int(l1)
 
+    if freq[size.index(modal)] == freq[-1]:
+        f2 = 0
+    else:
+        f2 = freq[size.index(modal) + 1]
+
+    if freq[size.index(modal)] == freq[0]:
+        f0 = 0
+    else:
+        f0 = freq[size.index(modal) - 1]
+
     f1 = freq[size.index(modal)]
-
-    f0 = freq[size.index(modal) - 1]
-
-    f2 = freq[size.index(modal) + 1]
+    
 
     # Calculating mode.
 
