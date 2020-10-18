@@ -17,24 +17,7 @@ groups = []
 def main():
     class_intervals()
     print("_______________________________________")
-    print("Estimating", end="")
-    for i in range(5):
-        time.sleep(0.5)  
-        print(".", end="")
-    print("")
-    
-    print("Analyzing", end="")
-    for i in range(5):
-        time.sleep(0.5)  
-        print(".", end="")
-    print("")
-    
-    print("Calculating mode", end="")
-    for i in range(3):
-        time.sleep(1)  
-        print(".", end="")
-    print("")
-    print("\nThe mode is:", mode())
+    print("           MODE (Z) =", mode())
     print("---------------------------------------")
 
 
