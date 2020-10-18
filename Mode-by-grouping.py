@@ -6,7 +6,6 @@ Licensed under MIT
 """
 
 import statistics
-import animation
 import time
 
 size = []  # Class Interval
@@ -16,11 +15,27 @@ groups = []
 
 
 def main():
-   class_intervals()
-   print("_______________________________________")
-   print("Calculating mode ", end="")
-   print("The mode is:", mode())
-   print("---------------------------------------")
+    class_intervals()
+    print("_______________________________________")
+    print("Estimating", end="")
+    for i in range(5):
+        time.sleep(0.5)  
+        print(".", end="")
+    print("")
+    
+    print("Analyzing", end="")
+    for i in range(5):
+        time.sleep(0.5)  
+        print(".", end="")
+    print("")
+    
+    print("Calculating mode", end="")
+    for i in range(3):
+        time.sleep(1)  
+        print(".", end="")
+    print("")
+    print("\nThe mode is:", mode())
+    print("---------------------------------------")
 
 
 def class_intervals():
@@ -66,10 +81,7 @@ def analyzer():
     group6()
 
 
-wheel = ('-', '/', '|', '\\')
-@animation.wait(wheel)
 def mode():
-    time.sleep(3)
     z = round(l1() + ((f1() - f0()) / ((2 * f1()) - f0() - f2()) * h()), 2)
     return z
 
