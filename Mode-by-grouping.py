@@ -1,74 +1,93 @@
 """
+<<<<<<< HEAD
 Mode by grouping version 1.12.10.20
+=======
+Mode by grouping version 1.15.10.20
+>>>>>>> Development
 
 Copyright (c) 2020 Shahibur Rahaman
 Licensed under MIT
 """
 
 import statistics
+import animation
 import time
 
 size = []  # Class Interval
 freq = []  # Frequency
 
-m1 = []
-m2 = []
-m3 = []
-m4 = []
-m5 = []
-m6 = []
-ms = [m1, m2, m3, m4, m5, m6]
-
-interv = ['', '', '', '', '', '']
-modal = 0
+groups = []
 
 
 def main():
+<<<<<<< HEAD
     class_size_input()
     frequncy_input()
     table(size, freq)
     estimation_table()
     analyze()
     print(f"\nThe mode of given data is |> {mode()} <|.\n")
+=======
+   class_intervals()
+   print("_______________________________________")
+   print("Calculating mode ", end="")
+   print("The mode is:", mode())
+   print("---------------------------------------")
 
 
-def class_size_input():
-    global size
-
-    n = int(input("Enter the number of classes: "))
-    
-    start_interval = int(input("Enter the starting range of the first class interval: "))
-    end_interval = int(input("Enter the ending range of the first class interval: "))
-    
-    width = (end_interval - start_interval)
-
-    for _ in range(n):
-        interval = str(start_interval) + "-" + str(end_interval)
-        size.append(interval)
-        start_interval = end_interval
-        end_interval = start_interval + width
-
-
-def frequncy_input():
-    global freq
-
-    for i in range(len(size)):
-        i += 1
-        
-        word = ""
-        if i == 1:
-            word += "st"
-        elif i == 2:
-            word += "nd"
-        elif i == 3:
-            word += "rd"
+def class_intervals():
+    n = int(input("Enter the number of class intervals: "))
+    lower = input("Enter the lower limit of first class: ")
+    upper = input("Enter the upper limit of first class: ")
+    diff = int(upper) - int(lower)
+    table()
+    for i in range(n):
+        lower = str(lower)
+        upper = str(upper)
+        if len(lower + upper)  + 1 <= 3:
+            space = 2
+        elif len(lower + upper) + 1 <= 4:
+            space = 1
         else:
-            word += "th"
+            space = 0
 
-        frequency = int(input(f"\nEnter the {i}{word} class's frequncy: "))
-        freq.append(frequency)
+        print("    ", lower + '-' + upper, " " * (23 + space), end="")
+        frequency()
+        size.append(lower + '-' + upper)
+        lower = int(lower) + diff
+        upper = int(upper) + diff
+>>>>>>> Development
 
 
+def frequency():
+    value = int(input())
+    freq.append(value)
+
+
+def modal_class():
+    analyzer()
+    modal = statistics.mode(groups)
+    return modal
+
+
+def analyzer():
+    group1()
+    group2() 
+    group3() 
+    group4() 
+    group5() 
+    group6()
+
+
+wheel = ('-', '/', '|', '\\')
+@animation.wait(wheel)
+def mode():
+    time.sleep(3)
+    z = round(l1() + ((f1() - f0()) / ((2 * f1()) - f0() - f2()) * h()), 2)
+    return z
+
+
+<<<<<<< HEAD
 def table(intervals, freq):
     print("________________________________")
     print("             TABLE")
@@ -126,38 +145,51 @@ def analyze():
             print(interv[i])
         else:
             print(interv[i], end = ", ")
-
-    modal = statistics.mode(interv)
-    print(f"\n=> The modal class after analyzing the data is {modal}.")
-
-
-def mode():
-    global size
-    global modal
-    global freq
-
-    print("_________________________________________")
-
+=======
+def l1():
     l1 = ""
-    h2 = ""
-    for i in modal:
+    for i in modal_class():
         if i == "-":
             break
         else:
             l1 += i
-    h1 = l1
+    l1 = int(l1)
+    return l1
 
-    for i in range(len(modal)):
-        i += 1
-        if modal[-i] == "-":
+
+def f0():
+    f0 = freq[size.index(modal_class()) - 1]
+    return f0
+>>>>>>> Development
+
+
+def f1():
+    f1 = freq[size.index(modal_class())]
+    return f1
+
+
+<<<<<<< HEAD
+    print("_________________________________________")
+=======
+def f2():
+    f2 = freq[size.index(modal_class()) + 1]
+    return f2
+
+>>>>>>> Development
+
+def h():
+    h1 = l1()
+    h2 = ""
+    for i in modal_class()[::-1]:
+        if i == "-":
             break
         else:
-            h2 += modal[-i]
-
-    h2 = int(h2[::-1])
-    h1 = int(h1)
+            h2 = i + h2
+    h2 = int(h2)
     h = h2 - h1
+    return h
 
+<<<<<<< HEAD
     l1 = int(l1)
 
     if freq[size.index(modal)] == freq[-1]:
@@ -172,69 +204,87 @@ def mode():
 
     f1 = freq[size.index(modal)]
     
+=======
 
-    # Calculating mode.
+def table():
+    print("_______________________________________")
+    print("                TABLE")
+    print("---------------------------------------")
+    print("CLASS INTERVALS               FREQUENCY")
 
-    z = l1 + ((f1 - f0) / (2 * f1 - f0 - f2) * h)
-    return z
+>>>>>>> Development
 
-def group1(intervals, freq):
-    global m1
-    for i in range(len(intervals)):
+def group1():
+    m1 = []
+    for i in range(len(size)):
         group = freq[i]
         m1.append(group)
 
     mode = max(m1)
+    groups.append(size[freq.index(mode)])
     return mode
 
 
-def group2(intervals, freq):
-    global m2
-    for i in range(0, len(intervals) - 1, 2):
+def group2():
+    m2 = []
+    for i in range(0, len(size) - 1, 2):
         group = freq[i] + freq[i + 1]
         m2.append(group)
 
     mode = max(m2)
+    groups.append(size[m2.index(mode) * 2])
+    groups.append(size[m2.index(mode) * 2 + 1])
     return mode
 
 
-def group3(intervals, freq):
-    global m3
-    for i in range(1, len(intervals) - 1, 2):
+def group3():
+    m3 = []
+    for i in range(1, len(size) - 1, 2):
         group = freq[i] + freq[i + 1]
         m3.append(group)
 
     mode = max(m3)
+    groups.append(size[m3.index(mode) * 2 + 1])
+    groups.append(size[m3.index(mode) * 2 + 2])
     return mode
 
 
-def group4(intervals, freq):
-    global m4
-    for i in range(0, len(intervals) - 2, 3):
+def group4():
+    m4 = []
+    for i in range(0, len(size) - 2, 3):
         group = freq[i] + freq[i + 1] + freq[i + 2]
         m4.append(group)
 
     mode = max(m4)
+    groups.append(size[m4.index(mode) * 3])
+    groups.append(size[m4.index(mode) * 3 + 1])
+    groups.append(size[m4.index(mode) * 3 + 2])
     return mode
 
 
-def group5(intervals, freq):
-    global m5
-    for i in range(1, len(intervals) - 2, 3):
+def group5():
+    m5 = []
+    for i in range(1, len(size) - 2, 3):
         group = freq[i] + freq[i + 1] + freq[i + 2]
         m5.append(group)
 
     mode = max(m5)
+    groups.append(size[m5.index(mode) * 3 + 1])
+    groups.append(size[m5.index(mode) * 3 + 2])
+    groups.append(size[m5.index(mode) * 3 + 3])
     return mode
 
 
-def group6(intervals, freq):
-    global m6
-    for i in range(2, len(intervals) - 2, 3):
+def group6():
+    m6 = []
+    for i in range(2, len(size) - 2, 3):
         group = freq[i] + freq[i + 1] + freq[i + 2]
         m6.append(group)
 
     mode = max(m6)
+    groups.append(size[m6.index(mode) * 3 + 2])
+    groups.append(size[m6.index(mode) * 3 + 3])
+    groups.append(size[m6.index(mode) * 3 + 4])
     return mode
 
 
