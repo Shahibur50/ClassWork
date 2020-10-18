@@ -1,9 +1,5 @@
 """
-<<<<<<< HEAD
-Mode by grouping version 1.12.10.20
-=======
 Mode by grouping version 1.15.10.20
->>>>>>> Development
 
 Copyright (c) 2020 Shahibur Rahaman
 Licensed under MIT
@@ -20,14 +16,6 @@ groups = []
 
 
 def main():
-<<<<<<< HEAD
-    class_size_input()
-    frequncy_input()
-    table(size, freq)
-    estimation_table()
-    analyze()
-    print(f"\nThe mode of given data is |> {mode()} <|.\n")
-=======
    class_intervals()
    print("_______________________________________")
    print("Calculating mode ", end="")
@@ -56,7 +44,6 @@ def class_intervals():
         size.append(lower + '-' + upper)
         lower = int(lower) + diff
         upper = int(upper) + diff
->>>>>>> Development
 
 
 def frequency():
@@ -87,65 +74,6 @@ def mode():
     return z
 
 
-<<<<<<< HEAD
-def table(intervals, freq):
-    print("________________________________")
-    print("             TABLE")
-    print("________________________________")
-    j = 0
-    print("CLASS INTERVALS        FREQUENCY")
-    for i in intervals:
-        if len(i) <= 3:
-            space = 2
-        elif len(i) <= 4:
-            space = 1
-        else:
-            space = 0
-        print("   ", i, " " * (15 + space), freq[j])
-        j += 1
-    print("")
-
-
-def estimation_table():
-    global interv
-    print("________________________________")
-    print("           ESTIMATION")
-    print("________________________________")
-    print("\nGROUPS", " " * 2, "BIG. VALUES     CLASS \n")
-
-    biggest_classes = [group1(size, freq), group2(size, freq), group3(size, freq),
-                      group4(size, freq), group5(size, freq), group6(size, freq)]
-    j = 0
-    for i in biggest_classes:
-        if j == 0:
-            interv[j] = size[ms[j].index(i)]
-            print("GROUP", j + 1, " " * 5, i, " " * (10 - len(str(i))), interv[j])
-        elif j == 1:
-            interv[j] = size[ms[j].index(i) * 2 + 1]
-            print("GROUP", j + 1, " " * 5, i, " " * (10 - len(str(i))), interv[j])
-        elif j == 2:
-            interv[j] = size[ms[j].index(i) * 2 + 2]
-            print("GROUP", j + 1, " " * 5, i, " " * (10 - len(str(i))), interv[j])
-        else:
-            interv[j] = size[ms[j].index(i) * 2 + 3]
-            print("GROUP", j + 1, " " * 5, i, " " * (10 - len(str(i))), interv[j])
-        j += 1
-
-
-def analyze():
-    global interv
-    global modal
-
-    print("_________________________________________")
-    print("               ANALYSIS")
-    print("_________________________________________")
-    print("        BIGGEST CLASSES IN GROUPS\n")
-    for i in range(len(interv)):
-        if i == len(interv) - 1:
-            print(interv[i])
-        else:
-            print(interv[i], end = ", ")
-=======
 def l1():
     l1 = ""
     for i in modal_class():
@@ -160,7 +88,6 @@ def l1():
 def f0():
     f0 = freq[size.index(modal_class()) - 1]
     return f0
->>>>>>> Development
 
 
 def f1():
@@ -168,14 +95,10 @@ def f1():
     return f1
 
 
-<<<<<<< HEAD
-    print("_________________________________________")
-=======
 def f2():
     f2 = freq[size.index(modal_class()) + 1]
     return f2
 
->>>>>>> Development
 
 def h():
     h1 = l1()
@@ -189,22 +112,6 @@ def h():
     h = h2 - h1
     return h
 
-<<<<<<< HEAD
-    l1 = int(l1)
-
-    if freq[size.index(modal)] == freq[-1]:
-        f2 = 0
-    else:
-        f2 = freq[size.index(modal) + 1]
-
-    if freq[size.index(modal)] == freq[0]:
-        f0 = 0
-    else:
-        f0 = freq[size.index(modal) - 1]
-
-    f1 = freq[size.index(modal)]
-    
-=======
 
 def table():
     print("_______________________________________")
@@ -212,7 +119,6 @@ def table():
     print("---------------------------------------")
     print("CLASS INTERVALS               FREQUENCY")
 
->>>>>>> Development
 
 def group1():
     m1 = []
