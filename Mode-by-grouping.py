@@ -15,10 +15,18 @@ groups = []
 
 
 def main():
-    class_intervals()
-    print("_______________________________________")
-    print("           MODE (Z) =", mode())
-    print("---------------------------------------")
+    opt = input("Is your data grouped?[y/n] ")
+    if opt == 'n':
+        sizes()
+        print("_______________________________________")
+        print("           MODE (Z) =", mode())
+        print("---------------------------------------")
+    else:
+        class_intervals()
+        print("_______________________________________")
+        print("           MODE (Z) =", freq[size.index(modal_class())])
+        print("---------------------------------------")
+
 
 
 def class_intervals():
@@ -42,6 +50,37 @@ def class_intervals():
         size.append(lower + '-' + upper)
         lower = int(lower) + diff
         upper = int(upper) + diff
+
+
+
+def sizes():
+    n = int(input("Enter the number of sizes: "))
+    size1 = int(input("Enter the value of 1st size: "))
+    size2 = int(input("Enter the value of 2nd size: "))
+    diff = size2 - size1
+    size_table()
+    for i in range(n):
+        size1 = str(size1)
+        if len(size1) <= 1:
+            space = 2
+        elif len(size1) <= 2:
+            space = 1
+        else:
+            space = 0
+        print("    ", size1, " " * (25 + space), end="")
+        frequency()
+        size.append(size1)
+        size1 = int(size1) + diff
+        size2 = int(size2) + diff
+
+
+
+def size_table():
+    print("_______________________________________")
+    print("                TABLE")
+    print("---------------------------------------")
+    print("   SIZE                       FREQUENCY")
+
 
 
 def frequency():
