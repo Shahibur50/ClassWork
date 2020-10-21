@@ -1,5 +1,5 @@
 """
-Mode by grouping version 1.15.10.20
+Mode by grouping version 1.16.10.20
 
 Copyright (c) 2020 Shahibur Rahaman
 Licensed under MIT
