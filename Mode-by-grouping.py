@@ -1,5 +1,5 @@
 """
-Mode by grouping version 1.18.10.20
+Mode by grouping version 2.19.10.20
 
 Copyright (c) 2020 Shahibur Rahaman
 Licensed under MIT
@@ -19,30 +19,70 @@ def main():
     '''
     The main function for execution of the program.
     '''
-    opt = input("Is your data grouped?[y/n] ")
-    
-    if opt == "info":
-        full_license_info()
-    elif opt == 'n':
-        sizes()
-        print("_______________________________________")
-        print("           MODE (Z) =", mode())
-        print("---------------------------------------")
-    else:
-        class_intervals()
-        print("_______________________________________")
-        print("           MODE (Z) =", freq[size.index(modal_class())])  # Mode in class intevals.
-        print("---------------------------------------")
+    global size
+    global freq
+    global groups
 
+    while True:
+        size = []
+        freq = []
+        groups = []
+        try:
+            while True:
+                try:
+                    opt = input("\n> Is your data grouped?[y/n] ")
+                    if opt == 'y' or opt == 'n' or opt == "info":
+                        break
+                except ValueError:
+                    continue
+
+            if opt == "info":
+                full_license_info()
+            elif opt == "n":
+                sizes()
+                print("_______________________________________")
+                print("             MODE (Z) =", size[size.index(modal_class())])  # Mode in sizes.
+                print("---------------------------------------")
+            elif opt == "y":
+                class_intervals()
+                print("_______________________________________")
+                print("             MODE (Z) =", mode())  # Mode in class intervals.
+                print("---------------------------------------")
+        except KeyboardInterrupt:
+            print("")
+            print("Exiting...")
+            time.sleep(2)
+            break
 
 
 def class_intervals():
     '''
     A function to print the class intervals and to get the frequencies.
     '''
-    n = int(input("Enter the number of class intervals: "))
-    lower = float(input("Enter the lower limit of first class: "))
-    upper = float(input("Enter the upper limit of first class: "))
+    while True:
+        try:
+            n = int(input("\n> Enter the number of class intervals: "))
+        except ValueError:
+            continue
+        else:
+            break
+    
+    while True:
+        try:
+            lower = float(input("> Enter the lower limit of first class: "))
+        except ValueError:
+            continue
+        else:
+            break
+    
+    while True:
+        try:
+            upper = float(input("> Enter the upper limit of first class: "))
+        except ValueError:
+            continue
+        else:
+            break
+    
     diff = float(upper) - float(lower)
 
     class_interval_table() # Calling the class interval table function to print a table.
@@ -69,41 +109,50 @@ def sizes():
     '''
     A function to print the size and to get the frequency inputs.
     '''
-    n = int(input("Enter the number of sizes: "))
-    size1 = int(input("Enter the value of 1st size: "))
-    size2 = int(input("Enter the value of 2nd size: "))
+    n = int(input("\n> Enter the number of sizes: "))
+    size1 = float(input("> Enter the value of 1st size: "))
+    size2 = float(input("> Enter the value of 2nd size: "))
     diff = size2 - size1
     
     size_table()  # Calling the size table function to print a table.
     
     for i in range(n):
         size1 = str(size1)
-        if len(size1) <= 1:
-            space = 2
-        elif len(size1) <= 2:
-            space = 1
-        else:
-            space = 0
-        print("    ", size1, " " * (25 + space), end="")
+        size2 = str(size2)
+        space = len(size2) - len(size1)
+        
+        if space > 0:
+            space -= 3
+        elif space == 0:
+            space -= len(size2) - 1
+
+        print("   ", size1, " " * (27 + space), end="")
         
         frequency()  # Calling the frequency function to get the input from the user.
 
         size.append(size1)
-        size1 = int(size1) + diff
-        size2 = int(size2) + diff
+        size1 = float(size1) + diff
+        size2 = float(size2) + diff
 
 
 def frequency():
     '''
     A function to get the value of frequency of the relative class intervals or size.
     '''
-    value = int(input())
-    freq.append(value)
+    while True:
+        try:
+            value = int(input())
+        except ValueError:
+            print(" " * 33, end="")
+            continue
+        else:
+            freq.append(value)
+            break
 
 
 def modal_class():
     '''
-    A function to return the modal class.
+    A function to return the modal class or mode(in case of size).
     '''
     analyzer()  # Calling the analyzer function to get the values ready for calculation of mode.
 
@@ -143,7 +192,7 @@ def l1():
             break
         else:
             l1 += i
-    l1 = int(l1)
+    l1 = float(l1)
     return l1
 
 
@@ -182,7 +231,7 @@ def h():
             break
         else:
             h2 = i + h2
-    h2 = int(h2)
+    h2 = float(h2)
     h = h2 - h1
     return h
 
@@ -310,7 +359,7 @@ def software_info():
     A function to print the information related to the software.
     '''
     print("""
-Mode by grouping version 1.18.10.20
+Mode by grouping version 2.19.10.20
 
 Copyright (c) 2020 Shahibur Rahaman
 Licensed under MIT
@@ -348,6 +397,7 @@ SOFTWARE.
 
 if __name__ == "__main__":
     software_info()    
-    print("Type (\"info\") for license information.\n")
+    print("Type (\"info\") for license information.")
+    print("Press (Ctrl + C) to exit the program.\n")
 
     main()
