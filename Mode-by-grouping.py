@@ -1,5 +1,5 @@
 """
-Mode by grouping version 2.19.10.20
+Mode by grouping version 2.20.10.20
 
 Copyright (c) 2020 Shahibur Rahaman
 Licensed under MIT
@@ -178,7 +178,10 @@ def mode():
     !> It calls the other functions which return the values of required values.
     !> It returns the value of mode to nearest 2nd decimal place.
     '''
-    z = round(l1() + ((f1() - f0()) / ((2 * f1()) - f0() - f2()) * h()), 2)
+    try:
+        z = round(l1() + ((f1() - f0()) / ((2 * f1()) - f0() - f2()) * h()), 2)
+    except ZeroDivisionError:
+        z = round(l1() + (abs((f1() - f0())) / (abs(f1() - f0()) + abs(f1() - f2())) * h()), 2)
     return z
 
 
@@ -268,7 +271,6 @@ def group1():
 
     mode = max(m1)
     groups.append(size[freq.index(mode)])
-    return mode
 
 
 def group2():
@@ -284,7 +286,6 @@ def group2():
     mode = max(m2)
     groups.append(size[m2.index(mode) * 2])
     groups.append(size[m2.index(mode) * 2 + 1])
-    return mode
 
 
 def group3():
@@ -300,7 +301,6 @@ def group3():
     mode = max(m3)
     groups.append(size[m3.index(mode) * 2 + 1])
     groups.append(size[m3.index(mode) * 2 + 2])
-    return mode
 
 
 def group4():
@@ -317,7 +317,6 @@ def group4():
     groups.append(size[m4.index(mode) * 3])
     groups.append(size[m4.index(mode) * 3 + 1])
     groups.append(size[m4.index(mode) * 3 + 2])
-    return mode
 
 
 def group5():
@@ -334,7 +333,6 @@ def group5():
     groups.append(size[m5.index(mode) * 3 + 1])
     groups.append(size[m5.index(mode) * 3 + 2])
     groups.append(size[m5.index(mode) * 3 + 3])
-    return mode
 
 
 def group6():
@@ -351,7 +349,6 @@ def group6():
     groups.append(size[m6.index(mode) * 3 + 2])
     groups.append(size[m6.index(mode) * 3 + 3])
     groups.append(size[m6.index(mode) * 3 + 4])
-    return mode
 
 
 def software_info():
@@ -359,7 +356,7 @@ def software_info():
     A function to print the information related to the software.
     '''
     print("""
-Mode by grouping version 2.19.10.20
+Mode by grouping version 2.20.10.20
 
 Copyright (c) 2020 Shahibur Rahaman
 Licensed under MIT
