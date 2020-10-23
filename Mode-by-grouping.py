@@ -91,18 +91,13 @@ def class_intervals():
         lower = str(lower)
         upper = str(upper)
         space = len(upper) - len(lower)
-
         if i == 0:
             space += 2
-
         print("  ", lower + '-' + upper, " " * (20 + space), end="")
-        
         frequency() # Calling the frequency function to get the input from the user.
-
         size.append(lower + '-' + upper)
         lower = float(lower) + diff
         upper = float(upper) + diff
-
 
 
 def sizes():
@@ -113,9 +108,7 @@ def sizes():
     size1 = float(input("> Enter the value of 1st size: "))
     size2 = float(input("> Enter the value of 2nd size: "))
     diff = size2 - size1
-    
-    size_table()  # Calling the size table function to print a table.
-    
+    size_table()  # Calling the size table function to print a table. 
     for i in range(n):
         size1 = str(size1)
         size2 = str(size2)
@@ -126,10 +119,8 @@ def sizes():
         elif space == 0:
             space -= len(size2) - 1
 
-        print("   ", size1, " " * (27 + space), end="")
-        
+        print("   ", size1, " " * (27 + space), end="") 
         frequency()  # Calling the frequency function to get the input from the user.
-
         size.append(size1)
         size1 = float(size1) + diff
         size2 = float(size2) + diff
@@ -181,6 +172,11 @@ def mode():
     try:
         z = round(l1() + ((f1() - f0()) / ((2 * f1()) - f0() - f2()) * h()), 2)
     except ZeroDivisionError:
+        print("        * Denominator is ZERO! *")
+        print("_______________________________________")
+        print("                FORMULA\n")
+        print("l + (|f1-f0|) / (|f1-f0| + |f1-f2|) * h\n")
+        print("---------------------------------------")
         z = round(l1() + (abs((f1() - f0())) / (abs(f1() - f0()) + abs(f1() - f2())) * h()), 2)
     return z
 
